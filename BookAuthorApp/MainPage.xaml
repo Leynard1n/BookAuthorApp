@@ -1,0 +1,41 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookAuthorApp.MainPage">
+
+    <StackLayout Padding="10">
+        <Label Text="Авторы" FontSize="24" HorizontalOptions="Center" />
+
+        <ListView x:Name="AuthorsListView" ItemsSource="{Binding Authors}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" 
+                              Detail="{Binding Id}" 
+                              Tapped="OnAuthorTapped" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Entry x:Name="AuthorNameEntry" Placeholder="Имя автора" />
+        <Button Text="Добавить автора" Clicked="OnAddAuthorClicked" />
+        <Button Text="Обновить автора" Clicked="OnUpdateAuthorClicked" />
+        <Button Text="Отмена" Clicked="OnCancelEditClicked" />
+        <Button Text="Удалить автора" Clicked="OnDeleteAuthorClicked" />
+
+        <Label Text="Книги" FontSize="24" HorizontalOptions="Center" />
+
+        <ListView x:Name="BooksListView" ItemsSource="{Binding Books}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" 
+                              Detail="{Binding Id}" 
+                              Tapped="OnBookTapped" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Entry x:Name="BookTitleEntry" Placeholder="Название книги" />
+        <Button Text="Добавить книгу" Clicked="OnAddBookClicked" />
+        <Button Text="Обновить книгу" Clicked="OnUpdateBookClicked" />
+        <Button Text="Удалить книгу" Clicked="OnDeleteBookClicked" />
+    </StackLayout>
+</ContentPage>
